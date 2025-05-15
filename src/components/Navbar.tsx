@@ -49,7 +49,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button 
-            className="bg-company-purple hover:bg-company-lightPurple transition-colors"
+            className={`${scrolled ? 'bg-company-purple text-white' : 'bg-white text-company-purple'} hover:bg-company-lightPurple hover:text-white transition-colors`}
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
           >
             Fale Conosco
@@ -61,7 +61,7 @@ const Navbar = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="text-gray-700" 
+            className={`${scrolled ? 'text-gray-700' : 'text-white'}`} 
             onClick={() => setIsOpen(!isOpen)}
           >
             <Menu />
@@ -87,7 +87,7 @@ const Navbar = () => {
             </a>
           ))}
           <Button 
-            className="mt-4 w-full bg-company-purple hover:bg-company-lightPurple transition-colors"
+            className="mt-4 w-full bg-company-purple text-white hover:bg-company-lightPurple transition-colors"
             onClick={() => {
               document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
               setIsOpen(false);
