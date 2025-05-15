@@ -1,5 +1,7 @@
+
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+
 const HeroSection = () => {
   return <section id="home" className="relative min-h-screen flex items-center bg-gradient-to-br from-company-blue via-company-purple to-company-lightPurple text-white overflow-hidden">
       {/* Abstract Background Elements */}
@@ -28,9 +30,13 @@ const HeroSection = () => {
           })}>
               Nossos Serviços
             </Button>
-            <Button variant="outline" onClick={() => document.querySelector('#contact')?.scrollIntoView({
-            behavior: 'smooth'
-          })} className="border-white text-blue hover:bg-white/10 transition-colors text-lg px-8 py-6">
+            <Button 
+              variant="outline"
+              onClick={() => document.querySelector('#contact')?.scrollIntoView({
+                behavior: 'smooth'
+              })} 
+              className="border-white text-white hover:bg-white/10 transition-colors text-lg px-8 py-6"
+            >
               Fale Conosco
             </Button>
           </div>
