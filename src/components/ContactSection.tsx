@@ -1,12 +1,12 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-
 const ContactSection = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,24 +15,25 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+    const {
+      name,
+      value
+    } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Mensagem enviada!",
-        description: "Agradecemos pelo seu contato. Retornaremos em breve.",
+        description: "Agradecemos pelo seu contato. Retornaremos em breve."
       });
       setFormData({
         name: '',
@@ -44,9 +45,7 @@ const ContactSection = () => {
       setIsSubmitting(false);
     }, 1500);
   };
-
-  return (
-    <section id="contact" className="py-24 bg-company-blue text-white">
+  return <section id="contact" className="py-24 bg-company-blue text-white">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Entre em Contato</h2>
@@ -68,7 +67,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Endereço</h4>
-                  <p className="opacity-80">São Paulo, SP - Brasil</p>
+                  <p className="opacity-80">Uberlândia - MG - Brasil</p>
                 </div>
               </div>
 
@@ -80,7 +79,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Telefone</h4>
-                  <p className="opacity-80">+55 (11) 99999-9999</p>
+                  <p className="opacity-80">+55 (34) 98425-1266</p>
                 </div>
               </div>
 
@@ -92,7 +91,7 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-medium">Email</h4>
-                  <p className="opacity-80">contato@leniciosouza.com.br</p>
+                  <p className="opacity-80">lenicio.junior@hotmail.com</p>
                 </div>
               </div>
             </div>
@@ -129,80 +128,34 @@ const ContactSection = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nome *</label>
-                  <Input 
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Seu nome"
-                    required
-                    className="border-gray-300"
-                  />
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Seu nome" required className="border-gray-300" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                  <Input 
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Seu email"
-                    required
-                    className="border-gray-300"
-                  />
+                  <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Seu email" required className="border-gray-300" />
                 </div>
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Telefone</label>
-                  <Input 
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(XX) XXXXX-XXXX"
-                    className="border-gray-300"
-                  />
+                  <Input id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="(XX) XXXXX-XXXX" className="border-gray-300" />
                 </div>
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">Empresa</label>
-                  <Input 
-                    id="company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Nome da empresa"
-                    className="border-gray-300"
-                  />
+                  <Input id="company" name="company" value={formData.company} onChange={handleChange} placeholder="Nome da empresa" className="border-gray-300" />
                 </div>
               </div>
 
               <div className="mb-6">
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Mensagem *</label>
-                <Textarea 
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Como podemos ajudar?"
-                  rows={5}
-                  required
-                  className="resize-none border-gray-300"
-                />
+                <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Como podemos ajudar?" rows={5} required className="resize-none border-gray-300" />
               </div>
 
-              <Button 
-                type="submit" 
-                className="w-full bg-company-purple hover:bg-company-lightPurple transition-colors"
-                disabled={isSubmitting}
-              >
+              <Button type="submit" className="w-full bg-company-purple hover:bg-company-lightPurple transition-colors" disabled={isSubmitting}>
                 {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
               </Button>
             </form>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
